@@ -1,6 +1,15 @@
 # ------------------------------------------------------------------------------------
 # 11. Escriba una función que reciba un conjunto de números y devuelva un conjunto con
 #  los números que están ordenados de menor a mayor.
+def order_numbers(numbers):
+  numbers = list(numbers)
+  numbers.sort()
+  return set(numbers)
+
+
+numbers = {6, 2, 3, 4, 2, 3}
+ordered_numbers = order_numbers(numbers)
+print(ordered_numbers)
 
 
 # ------------------------------------------------------------------------------------
