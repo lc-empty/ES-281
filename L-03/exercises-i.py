@@ -40,7 +40,7 @@ def conjunto_numeros(numeros):
     numero = int(input("ingrese numero:"))
     for i in numeros:
         if i % numero == 0:
-            numeros_divisibles.add(numero)
+            numeros_divisibles.add(i)
     return numeros_divisibles
 
 # print(conjunto_numeros(numeros))
