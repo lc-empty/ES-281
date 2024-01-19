@@ -89,18 +89,44 @@ print(diferencia_conjuntos(conjunto1, conjunto2))
 
 
 # -------------------------------------------------------------------------------------------------------
-# 7. Escriba una función que reciba un conjunto de palabras y devuelva un conjunto con las palabras que s
-# on anagramas.
+# 7. Escriba una función que reciba un conjunto de palabras y devuelva un conjunto con las palabras que
+# son anagramas.
 
 # -------------------------------------------------------------------------------------------------------
-# 8. Escriba una función que reciba un conjunto de palabras y devuelva un conjunto con las palabras que s
-# on palíndromos.
+# 8. Escriba una función que reciba un conjunto de palabras y devuelva un conjunto con las palabras que son palíndromos.
+def palabras_palindromo(palabras):
+    palabrasPalindromo = set()
+    for palabra in palabras:
+        if palabra == palabra[::-1]:
+            palabrasPalindromo.add(palabra)
+    return palabrasPalindromo
+
+palabras = {"oso", "radar", "casa", "reconocer"}
+print(palabras_palindromo(palabras))
 
 # -------------------------------------------------------------------------------------------------------
-# 9. Escriba  una  función  que  reciba  un  conjunto  de  palabras  y  devuelva  un  conjunto  con  las
-#  palabras  que tienen una longitud determinada.
+# 9. Escriba una función que reciba un conjunto de palabras y devuelva un conjunto con las palabras que tienen una longitud determinada.
+def palabras_tamano(palabras):
+    palabrasTamañoIgual = set()
+    tamaño = int(input("Tamaño: "))
+    for i in palabras:
+        if len(i) == tamaño:
+            palabrasTamañoIgual.add(i)
+    return palabrasTamañoIgual
+
+palabras = {"manzana", "pera", "uva", "kiwi"}
+print(palabras_tamano(palabras))
 
 # -------------------------------------------------------------------------------------------------------
-# 0. Escriba  una  función  que  reciba  un  conjunto  de  palabras  y  devuelva  un  conjunto  con  las
-#  palabras  que contienen una letra determinada.
+# 10. Escriba una función que reciba un conjunto de palabras y devuelva un conjunto con las palabras que contienen una letra determinada.
+def palabras_con_letra(conjunto_palabra):
+    palbrasInicial = set()
+    letra = input("Letra: ")
+    for palabra in conjunto_palabra:
+        if letra in palabra:
+            palbrasInicial.add(palabra)
+    return palbrasInicial
 
+palabras = {"mora", "cereza", "ciruela", "coco"}
+conjunto_palabra = set(palabras)
+print(palabras_con_letra(conjunto_palabra))
