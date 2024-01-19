@@ -12,7 +12,7 @@ def conjunto_numeros_primos(numeros):
         respuesta = input("desea ingresar otro numero?:")
     return numeros
 
-print(conjunto_numeros_primos(numeros))
+# print(conjunto_numeros_primos(numeros))
 
 # -------------------------------------------------------------------------------------------------------
 # 2. Escriba una función que reciba un conjunto de palabras y devuelva un conjunto con las
@@ -28,7 +28,7 @@ def palabras(conjunto_palabra):
             palabras_iniciales.add(palabra)
     return palabras_iniciales
 
-print(palabras(conjunto_palabra))
+# print(palabras(conjunto_palabra))
 
 # -------------------------------------------------------------------------------------------------------
 # 3. Escriba una función que reciba un conjunto de números y devuelva un conjunto con los números que son
@@ -43,7 +43,7 @@ def conjunto_numeros(numeros):
             numeros_divisibles.add(numero)
     return numeros_divisibles
 
-print(conjunto_numeros(numeros))
+# print(conjunto_numeros(numeros))
 
 # -------------------------------------------------------------------------------------------------------
 # 4. Escriba una función que reciba dos conjuntos de números y devuelva un conjunto con los números que están
@@ -55,7 +55,7 @@ def union_conjuntos(conjunto1, conjunto2):
     nuevo_conjunto = conjunto2.union(conjunto1)
     return nuevo_conjunto
 
-print(union_conjuntos(conjunto1, conjunto2))
+# print(union_conjuntos(conjunto1, conjunto2))
 
 # -------------------------------------------------------------------------------------------------------
 # 5. Escriba una función que reciba dos conjuntos de números y devuelva un conjunto con los números que están
@@ -70,7 +70,7 @@ def diferencia_conjuntos(conjunto1, conjunto2):
             conjunto_nuevo.add(i)
     return conjunto_nuevo
 
-print(diferencia_conjuntos(conjunto1, conjunto2))
+# print(diferencia_conjuntos(conjunto1, conjunto2))
 
 # -------------------------------------------------------------------------------------------------------
 # 6. Escriba una función que reciba dos conjuntos de números y devuelva un conjunto con los números que están
@@ -85,7 +85,7 @@ def diferencia_conjuntos(conjunto1, conjunto2):
             conjunto_nuevo.add(i)
     return conjunto_nuevo
 
-print(diferencia_conjuntos(conjunto1, conjunto2))
+# print(diferencia_conjuntos(conjunto1, conjunto2))
 
 
 # -------------------------------------------------------------------------------------------------------
@@ -102,7 +102,7 @@ def palabras_palindromo(palabras):
     return palabrasPalindromo
 
 palabras = {"oso", "radar", "casa", "reconocer"}
-print(palabras_palindromo(palabras))
+# print(palabras_palindromo(palabras))
 
 # -------------------------------------------------------------------------------------------------------
 # 9. Escriba una función que reciba un conjunto de palabras y devuelva un conjunto con las palabras que tienen una longitud determinada.
@@ -115,7 +115,7 @@ def palabras_tamano(palabras):
     return palabrasTamañoIgual
 
 palabras = {"manzana", "pera", "uva", "kiwi"}
-print(palabras_tamano(palabras))
+# print(palabras_tamano(palabras))
 
 # -------------------------------------------------------------------------------------------------------
 # 10. Escriba una función que reciba un conjunto de palabras y devuelva un conjunto con las palabras que contienen una letra determinada.
@@ -129,4 +129,4 @@ def palabras_con_letra(conjunto_palabra):
 
 palabras = {"mora", "cereza", "ciruela", "coco"}
 conjunto_palabra = set(palabras)
-print(palabras_con_letra(conjunto_palabra))
+# print(palabras_con_letra(conjunto_palabra))
