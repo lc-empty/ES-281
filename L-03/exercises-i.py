@@ -98,18 +98,19 @@ def mostar_diferencia_conjuntos(conjunto1,conjunto2):
 # -------------------------------------------------------------------------------------------------------
 # 8. Escriba una función que reciba un conjunto de palabras y devuelva un conjunto con las palabras que son palíndromos.
 def palabras_palindromo(palabras):
-    palabrasPalindromo = set()
+    conjunto_palabras_palindromo = set()
     for palabra in palabras:
         if palabra == palabra[::-1]:
-            palabrasPalindromo.add(palabra)
-    return palabrasPalindromo
+            conjunto_palabras_palindromo.add(palabra)
+    return conjunto_palabras_palindromo
 
 palabras = {"oso", "radar", "casa", "reconocer"}
 # print(palabras_palindromo(palabras))
 
 # -------------------------------------------------------------------------------------------------------
 # 9. Escriba una función que reciba un conjunto de palabras y devuelva un conjunto con las palabras que tienen una longitud determinada.
-def palabras_tamano(palabras):
+
+def palabras_tamaños_iguales(palabras):
     palabrasTamañoIgual = set()
     tamaño = int(input("Tamaño: "))
     for i in palabras:
@@ -117,8 +118,8 @@ def palabras_tamano(palabras):
             palabrasTamañoIgual.add(i)
     return palabrasTamañoIgual
 
-palabras = {"manzana", "pera", "uva", "kiwi"}
-# print(palabras_tamano(palabras))
+animales = {"mapache","cebra","escarabajo","ballena","merluza","bisonte","mariposa","flamenco"}
+# print(palabras_tamaños_iguales(animales))
 
 # -------------------------------------------------------------------------------------------------------
 # 10. Escriba una función que reciba un conjunto de palabras y devuelva un conjunto con las palabras que contienen una letra determinada.
