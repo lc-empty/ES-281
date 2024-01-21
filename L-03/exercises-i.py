@@ -1,34 +1,37 @@
 # -------------------------------------------------------------------------------------------------------
 # 1. Escriba una función que reciba un conjunto de números y devuelva un conjunto con los números primos.
-numeros = set()
+conjunto_numeros = {7,8,9,1,3,11,5,6,8,20,47}
+def imprimir_conjunto_numeros_primos(conjunto_numeros):
+    conjunto_numeros_primos =set()
+    for numero in conjunto_numeros:
+        divisores = 0
+        for i in range(1,numero+1):
+            if numero % i == 0:
+                divisores = divisores + 1
+        if divisores == 2:
+            conjunto_numeros_primos.add(numero)
+    return sorted(conjunto_numeros_primos)
 
-def conjunto_numeros_primos(numeros):
-    numero = int(input("ingrese numero:"))
-    respuesta = "si"
-    while respuesta == "si":
-        numero = float(input("ingrese numero:"))
-        if numero % 1 == 0 and numero % numero == 0:
-            numeros.add(numero)
-        respuesta = input("desea ingresar otro numero?:")
-    return numeros
-
-# print(conjunto_numeros_primos(numeros))
+# print (imprimir_conjunto_numeros_primos(conjunto_numeros ))
 
 # -------------------------------------------------------------------------------------------------------
 # 2. Escriba una función que reciba un conjunto de palabras y devuelva un conjunto con las
 # palabras que comienzan con una letra determinada.
-palabras = ["mora", "cereza", "ciruela", "coco"]
-conjunto_palabra = set(palabras)
+
+
+palabras = ["mora" ,"cereza","ciruela","coco"]
+conjunto_palabra=set(palabras)
 
 def palabras(conjunto_palabra):
-    palabras_iniciales = set()
-    letra = input("letra:")
+    palabras_inicial_iguales= set()
+    letra= input("letra:")
     for palabra in conjunto_palabra:
-        if letra in palabra:
-            palabras_iniciales.add(palabra)
-    return palabras_iniciales
+        if letra == palabra[0]:
+            palabras_inicial_iguales.add(palabra)
+    return palabras_inicial_iguales
 
-# print(palabras(conjunto_palabra))
+
+# print (palabras(conjunto_palabra))
 
 # -------------------------------------------------------------------------------------------------------
 # 3. Escriba una función que reciba un conjunto de números y devuelva un conjunto con los números que son
@@ -48,44 +51,44 @@ def conjunto_numeros(numeros):
 # -------------------------------------------------------------------------------------------------------
 # 4. Escriba una función que reciba dos conjuntos de números y devuelva un conjunto con los números que están
 # en ambos conjuntos.
-conjunto1 = {1, 3, 4, 65, 89, 9}
-conjunto2 = {5, 3, 6, 8, 4, 87}
 
-def union_conjuntos(conjunto1, conjunto2):
-    nuevo_conjunto = conjunto2.union(conjunto1)
-    return nuevo_conjunto
 
-# print(union_conjuntos(conjunto1, conjunto2))
+conjunto1 = {1,3,5,7,9,11,13,15,17,19}
+conjunto2 = {23,11,17,13,2,7,5,3}
+
+def mostar_conjunto_interseccion(conjunto1,conjunto2):
+    conjunto_inteseccion = conjunto1.intersection(conjunto2)
+    return sorted(conjunto_inteseccion)
+
+
+# print(mostar_conjunto_interseccion(conjunto1,conjunto2))
 
 # -------------------------------------------------------------------------------------------------------
 # 5. Escriba una función que reciba dos conjuntos de números y devuelva un conjunto con los números que están
 # en el primer conjunto pero no en el segundo.
-conjunto1 = {1, 3, 4, 65, 89, 9}
-conjunto2 = {5, 3, 6, 8, 4, 87}
+conjunto1 = {3,4,5,13,24,56,2,6,7}
+conjunto2 = {5,3,11,7,9,8,2,6,23,13}
 
-def diferencia_conjuntos(conjunto1, conjunto2):
-    conjunto_nuevo = set()
-    for i in conjunto1:
-        if i not in conjunto2:
-            conjunto_nuevo.add(i)
-    return conjunto_nuevo
+def mostar_diferencia_conjuntos(conjunto1,conjunto2):
+    conjunto_diferencia = conjunto1.difference(conjunto2)
+    return sorted(conjunto_diferencia)
 
-# print(diferencia_conjuntos(conjunto1, conjunto2))
+
+# print(mostar_diferencia_conjuntos(conjunto1,conjunto2))
 
 # -------------------------------------------------------------------------------------------------------
 # 6. Escriba una función que reciba dos conjuntos de números y devuelva un conjunto con los números que están
 # en el segundo conjunto pero no en el primero.
-conjunto1 = {1, 3, 4, 65, 89, 9}
-conjunto2 = {5, 3, 6, 8, 4, 87}
 
-def diferencia_conjuntos(conjunto1, conjunto2):
-    conjunto_nuevo = set()
-    for i in conjunto2:
-        if i not in conjunto1:
-            conjunto_nuevo.add(i)
-    return conjunto_nuevo
+conjunto1 = {3,4,5,13,24,56,2,6,7}
+conjunto2 = {5,3,11,7,9,8,2,6,23,13}
 
-# print(diferencia_conjuntos(conjunto1, conjunto2))
+def mostar_diferencia_conjuntos(conjunto1,conjunto2):
+    conjunto3 = conjunto2.difference(conjunto1)
+    return sorted(conjunto3)
+
+
+# print(mostar_diferencia_conjuntos(conjunto1,conjunto2))
 
 
 # -------------------------------------------------------------------------------------------------------
