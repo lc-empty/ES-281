@@ -122,14 +122,13 @@ palabras = {"manzana", "pera", "uva", "kiwi"}
 
 # -------------------------------------------------------------------------------------------------------
 # 10. Escriba una función que reciba un conjunto de palabras y devuelva un conjunto con las palabras que contienen una letra determinada.
-def palabras_con_letra(conjunto_palabra):
-    palbrasInicial = set()
-    letra = input("Letra: ")
-    for palabra in conjunto_palabra:
+def palabras(conjun_palabras): 
+    palabras_letra_determinada= set()
+    letra= input("letra:")
+    for palabra in conjun_palabras:
         if letra in palabra:
-            palbrasInicial.add(palabra)
-    return palbrasInicial
-
-palabras = {"mora", "cereza", "ciruela", "coco"}
-conjunto_palabra = set(palabras)
-# print(palabras_con_letra(conjunto_palabra))
+            palabras_letra_determinada.add(palabra)
+    return palabras_letra_determinada
+    
+utencilios_cocina = {"cuchillo","olla","sarten","espátula","cucharon","tenedor","colador"}
+# rint (palabras(utencilios_cocina))
