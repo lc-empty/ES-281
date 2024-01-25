@@ -91,6 +91,27 @@ def diferencia_conjuntos(conjunto1, conjunto2):
 # -------------------------------------------------------------------------------------------------------
 # 7. Escriba una función que reciba un conjunto de palabras y devuelva un conjunto con las palabras que
 # son anagramas.
+def son_anagramas(palabra1, palabra2):
+    return sorted(palabra1) == sorted(palabra2)
+
+def encontrar_anagramas(conjunto_palabras):
+    anagramas_dict = {}
+
+    for palabra in conjunto_palabras:
+        anagramas = [key for key in anagramas_dict if son_anagramas(palabra, key)]
+
+        if anagramas:
+            anagramas_dict[anagramas[0]].add(palabra)
+        else:
+            anagramas_dict[palabra] = {palabra}
+
+    anagramas_resultado = {tuple(val) for val in anagramas_dict.values() if len(val) > 1}
+
+    return anagramas_resultado
+
+conjunto_palabras = {"amor", "roma", "carro", "arco", "delira", "ramo", "lidera"}
+resultado = encontrar_anagramas(conjunto_palabras)
+# print(resultado)
 
 # -------------------------------------------------------------------------------------------------------
 # 8. Escriba una función que reciba un conjunto de palabras y devuelva un conjunto con las palabras que son palíndromos.
