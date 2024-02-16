@@ -22,7 +22,7 @@ class ListaEnlazadaSimple:
 
     def eliminar_nodo(self, dato):
         return
-
+# sdfsdfsd
 
     def mostrar(self):
         actual = self.inicio
