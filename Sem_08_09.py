@@ -9,7 +9,7 @@ class ListaEnlazadaSimple:
     def __init__(self):
         self.inicio = None
 
-
+# _____
     def insertar_inicio(self, dato):
         nuevo_nodo = Nodo(dato)
         nuevo_nodo.siguiente = self.inicio
