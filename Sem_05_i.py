@@ -144,13 +144,13 @@ animales = {"mapache","cebra","escarabajo","ballena","merluza","bisonte","maripo
 
 # -------------------------------------------------------------------------------------------------------
 # 10. Escriba una función que reciba un conjunto de palabras y devuelva un conjunto con las palabras que contienen una letra determinada.
-def palabras(conjun_palabras): 
+def palabras(conjun_palabras):
     palabras_letra_determinada= set()
     letra= input("letra:")
     for palabra in conjun_palabras:
         if letra in palabra:
             palabras_letra_determinada.add(palabra)
     return palabras_letra_determinada
-    
+
 utencilios_cocina = {"cuchillo","olla","sarten","espátula","cucharon","tenedor","colador"}
 # rint (palabras(utencilios_cocina))
