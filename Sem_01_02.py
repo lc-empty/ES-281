@@ -1,4 +1,5 @@
 import math
+from typing import List
 
 # --------------------------------------------------------------------------------
 # 1. Realiza la suma, resta, multiplicación y división de dos números ingresados por el usuario
@@ -25,22 +26,22 @@ import math
 
 # --------------------------------------------------------------------------------
 # 4. Crea una función que calcule la factorial de un número.
-# def factorial (n):
-#     if n == 0:
-#         return 1
-#     else:
-#         return n*factorial (n-1)
+def factorial (n):
+    if n == 0:
+        return 1
+    else:
+        return n*factorial (n-1)
 # print(factorial(7))
 
 # --------------------------------------------------------------------------------
 # 5. Verifica si un número ingresado por el usuario es primo o no.
-# def es_primo(n):
-#     es_primo = True
-#     for i in range(2, n):
-#         if n % i == 0:
-#             es_primo = False
-#             break
-#     return es_primo
+def es_primo(n):
+    es_primo = True
+    for i in range(2, n):
+        if n % i == 0:
+            es_primo = False
+            break
+    return es_primo
 
 # n = int(input("Ingrese un número: "))
 
@@ -81,7 +82,7 @@ def sum_range_peers():
 # --------------------------------------------------------------------------------
 # 8. Crea una lista de los cuadrados de los primeros 10 números naturales
 def array_sqrt(num):
-    arr_sqrt: [int] = []
+    arr_sqrt: List[int] = []
     for i in range(1, num + 1):
         arr_sqrt.append(i * i)
 
@@ -109,7 +110,7 @@ def fibonacci(num):
         return fibonacci(num - 1) + fibonacci(num - 2)
 
 def array_fibonacci(num):
-    array: [int] = []
+    array: List[int] = []
     for i in range(num):
         array.append(fibonacci(i))
     return array
@@ -120,7 +121,7 @@ def array_fibonacci(num):
 # --------------------------------------------------------------------------------
 # 11. Ordena una lista de números ingresados por el usuario de menor a mayor.
 def arr_numbers_sort():
-    arr_numbers: [int] = []
+    arr_numbers: List[int] = []
     for i in range(int(input("How many numbers do you want to enter? "))):
         arr_numbers.append(int(input(f"Number {i + 1}: ")))
 
