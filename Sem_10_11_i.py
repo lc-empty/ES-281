@@ -1,19 +1,20 @@
 # Ejercicio parte 01 -  Listas Enlazadas Dobles:
 
+
 class Nodo:
-    def _init_(self, dato):
+    def __init__(self, dato):
         self.dato = dato
         self.siguiente = None
         self.anterior = None
 
+
 class ListaEnlazadaDoble:
-    def _init_(self):
+    def __init__(self):
         self.inicio = None
         self.fin = None
 
-
     def esta_vacia(self):
-        return  self.inicio is None
+        return self.inicio is None
 
     def agregar_inicio(self, dato):
         nuevo_nodo = Nodo(dato)
@@ -24,7 +25,6 @@ class ListaEnlazadaDoble:
             self.inicio.anterior = nuevo_nodo
             self.inicio = nuevo_nodo
 
-
     def agregar_final(self, dato):
         nuevo_nodo = Nodo(dato)
         if self.esta_vacia():
@@ -33,7 +33,6 @@ class ListaEnlazadaDoble:
             nuevo_nodo.anterior = self.fin
             self.fin.siguiente = nuevo_nodo
             self.fin = nuevo_nodo
-
 
     def eliminar(self, dato):
         actual = self.inicio
@@ -52,7 +51,6 @@ class ListaEnlazadaDoble:
 
             actual = actual.siguiente
 
-
     def imprimir_adelante(self):
         print("Lista invertida hacia adelante:")
         actual = self.inicio
@@ -61,7 +59,6 @@ class ListaEnlazadaDoble:
             actual = actual.siguiente
         print()
 
-
     def imprimir_atras(self):
         print("Lista invertida hacia atras:")
         actual = self.fin
@@ -69,7 +66,6 @@ class ListaEnlazadaDoble:
             print(actual.dato, end=" ")
             actual = actual.anterior
         print()
-
 
     # Duplicar Nodos:
     # 1. Crea una lista con al menos 4 nodos, duplica cada nodo de la lista e imprime la lista original y la lista duplicada hacia adelante y hacia atras.
@@ -87,7 +83,6 @@ class ListaEnlazadaDoble:
                 self.fin = nuevo_nodo
             actual = siguiente_temporal
 
-
     # Contar Nodos Pares e Impares:
     # 2. Crea una lista con al menos 9 nodos, cuenta cuantos nodos tienen un dato par y cuantos tienen un dato impar e imprime la lista hacia adelante y hacia atras.
     def contar_pares_impares(self):
@@ -101,7 +96,6 @@ class ListaEnlazadaDoble:
                 contador_impares += 1
             actual = actual.siguiente
         return contador_pares, contador_impares
-
 
     # Insertar Nodo en Posicion Especifica:
     # 3. Crea una lista con al menos 5 nodos, inserta un nuevo nodo con el dato 15 en la posicion 3 e imprime la lista hacia adelante y hacia atras.
@@ -121,19 +115,19 @@ class ListaEnlazadaDoble:
                 actual = actual.siguiente
                 contador += 1
             if actual is None:
-                raise ValueError("La posicion no puede ser mayor que la cantidad de nodos.")
+                raise ValueError(
+                    "La posicion no puede ser mayor que la cantidad de nodos."
+                )
             nuevo_nodo.siguiente = actual.siguiente
             if actual.siguiente is not None:
                 actual.siguiente.anterior = nuevo_nodo
             actual.siguiente = nuevo_nodo
             nuevo_nodo.anterior = actual
 
-
     # Eliminar Nodos Duplicados:
     # 4. Crea una lista con nodos que contengan datos duplicados, elimina todos los nodos duplicados, dejando solo una instancia de cada dato e imprime la lista hacia adelante y hacia atras.
     def eliminar_duplicados(self):
         return
-
 
     # Invertir la Lista:
     # 5. Crea una lista con al menos 6 nodos, invierte el orden de la lista (el ultimo elemento se convierte en el primero y viceversa) e imprime la lista hacia adelante y hacia atras
@@ -143,7 +137,6 @@ class ListaEnlazadaDoble:
             actual.siguiente, actual.anterior = actual.anterior, actual.siguiente
             actual = actual.anterior
         self.inicio, self.fin = self.fin, self.inicio
-
 
 
 lista_original = ListaEnlazadaDoble()
