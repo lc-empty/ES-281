@@ -3,56 +3,87 @@ from collections import deque;
 # Pila
 class Pila:
     def __init__(self):
-        self.items = [];
-
+        self.cima = None;
 
     def esta_vacia(self):
-        return len(self.items) == 0;
-    
+        return self.cima is None;
 
+    # Agregar
     def apilar(self, elemento):
-        # self.items.append(elemento);
-        self.items += [elemento]
-    
+        nuevo = Nodo(elemento);
+        nuevo.enlace = self.cima;
+        self.cima = nuevo;
 
+    # Quitar
     def desapilar(self):
         if not self.esta_vacia():
-            return self.items.pop();
-        print("La pila esta vacia")
-
+            dato = self.cima.dato;
+            self.cima = self.cima.enlace;
+            return dato;
+        else:
+            print("La pila está vacía");
 
     # Mostrar
     def imprimir(self):
-        print(self.items);
+        if self.esta_vacia():
+            print("La pila está vacía");
+        else:
+            temp = self.cima
+            while temp is not None:
+                print(temp.dato);
+                temp = temp.enlace;
 
 # Cola
 class Cola:
     def __init__(self):
-        self.items = deque();
+        self.cabeza = None;
+        self.cola = None;
 
 
     def esta_vacia(self):
-        return len(self.items) == 0;
+        return self.cabeza is None;
 
 
     def enColar(self, dato):
-        self.items.append(dato);
+        nuevo = Nodo(dato);
+        if self.esta_vacia():
+            self.cabeza = nuevo;
+            self.cola = nuevo;
+        else:
+            self.cola.siguiente = nuevo;
+            self.cola = nuevo;
 
 
     def desColar(self):
         if not self.esta_vacia():
-            return self.items.popleft();
+            dato = self.cabeza.dato;
+            self.cabeza = self.cabeza.siguiente;
+            if self.cabeza is None:
+                self.cola = None;
+            return dato;
         else:
             return None;
 
 
     def tamano(self):
-        return len(self.items);
+        contador = 0;
+        aux = self.cabeza;
+        while aux is not None:
+            contador += 1;
+            aux = aux.siguiente;
+        return contador;
 
 
     # Mostrar
     def imprimir(self):
-        print(self.items);
+        if self.esta_vacia():
+            print("La cola está vacía");
+        else:
+            aux = self.cabeza;
+            while aux is not None:
+                print(aux.dato, end=" ");
+                aux = aux.siguiente;
+            print();
 
 
 # Pila
