@@ -127,9 +127,39 @@ class ListaEnlazadaDoble:
     # Eliminar Nodos Duplicados:
     # 4. Crea una lista con nodos que contengan datos duplicados, elimina todos los nodos duplicados, dejando solo una instancia de cada dato e imprime la lista hacia adelante y hacia atras.
     def eliminar_duplicados(self):
-        return
+        # Verificar si la lista está vacía
+        if self.inicio is None:
+            return
 
-    # Invertir la Lista:
+        # Inicializar un conjunto para almacenar los nodos vistos
+        nodos_vistos = set()
+        nodo_actual = self.inicio
+
+        # Recorrer la lista
+        while nodo_actual:
+            # Comprobar si el dato del nodo actual ya se ha visto
+            if nodo_actual.dato in nodos_vistos:
+                # Eliminar el nodo duplicado
+                nodo_anterior = nodo_actual.anterior
+                nodo_siguiente = nodo_actual.siguiente
+
+                if nodo_anterior:
+                    nodo_anterior.siguiente = nodo_siguiente
+                else:
+                    self.inicio = nodo_siguiente
+
+                if nodo_siguiente:
+                    nodo_siguiente.anterior = nodo_anterior
+                else:
+                    self.fin = nodo_anterior
+
+                nodo_actual = nodo_siguiente
+            else:
+                # Agregar el dato del nodo actual al conjunto de nodos vistos
+                nodos_vistos.add(nodo_actual.dato)
+                nodo_actual = nodo_actual.siguiente    # Invertir la Lista:
+
+
     # 5. Crea una lista con al menos 6 nodos, invierte el orden de la lista (el ultimo elemento se convierte en el primero y viceversa) e imprime la lista hacia adelante y hacia atras
     def invertir(self):
         actual = self.inicio
@@ -178,6 +208,10 @@ lista_original.imprimir_atras()
 
 
 # 4 ----------------------------------------------------------------
+#lista_original.insertar_en_posicion(12,3)
+#lista_original.agregar_final(12)
+#lista_original.eliminar_duplicados()
+#lista_original.imprimir_adelante()
 
 
 # 5 ----------------------------------------------------------------
