@@ -13,20 +13,65 @@ print(ordered_numbers)
 
 
 # ------------------------------------------------------------------------------------
-# 12. Escriba una función que reciba un conjunto de números y devuelva un conjunto con
-#  los números que están ordenados de mayor a menor.
+# 12. Función que devuelve un conjunto con los números ordenados de mayor a menor.
+def numeros_ordenados_de_mayor_a_menor(conjunto):
+    # Convertimos el conjunto a una lista y la ordenamos de mayor a menor
+    lista_ordenada = sorted(conjunto, reverse=True)
+    # Convertimos la lista ordenada de nuevo a un conjunto y la retornamos
+    return set(lista_ordenada)
+
+# conjunto = {3, 6, 1, 9, 4}
+# resultado = numeros_ordenados_de_mayor_a_menor(conjunto)
+# print(resultado) 
 
 
 # ------------------------------------------------------------------------------------
-# 13. Escriba una función que reciba un conjunto de números y devuelva un conjunto con
-#  los números que están duplicados.
+# 13. Función que devuelve un conjunto con los números duplicados en el conjunto dado.
+def numeros_duplicados(conjunto):
+    # Creamos un conjunto vacío para almacenar los números duplicados
+    duplicados = set()
+    # Creamos un conjunto para almacenar los números únicos mientras recorremos el conjunto dado
+    numeros_unicos = set()
+    # Iteramos sobre cada número en el conjunto dado
+    for numero in conjunto:
+        # Si el número ya está en el conjunto de números únicos, significa que es duplicado
+        if numero in numeros_unicos:
+            duplicados.add(numero)  # Agregamos el número duplicado al conjunto de duplicados
+        else:
+            numeros_unicos.add(numero)  # Agregamos el número único al conjunto de números únicos
+    # Retornamos el conjunto de números duplicados
+    return duplicados
+
+# conjunto = {3, 6, 1, 9, 4, 6, 2, 3}
+# resultado = numeros_duplicados(conjunto)
+# print(resultado) 
 
 
 # ------------------------------------------------------------------------------------
-# 14. Escriba una función que reciba un conjunto de números y devuelva un conjunto con
-#  los números que no están duplicados.
+# 14. Función que devuelve un conjunto con los números no duplicados en el conjunto dado.
+def numeros_no_duplicados(conjunto):
+    # Creamos un conjunto vacío para almacenar los números no duplicados
+    no_duplicados = set()
+    # Creamos un conjunto para almacenar los números duplicados mientras recorremos el conjunto dado
+    duplicados = set()
+    # Iteramos sobre cada número en el conjunto dado
+    for numero in conjunto:
+        # Si el número ya está en el conjunto de números duplicados, lo ignoramos
+        if numero in duplicados:
+            continue
+        # Si el número ya está en el conjunto de números no duplicados, lo movemos al conjunto de duplicados
+        elif numero in no_duplicados:
+            no_duplicados.remove(numero)
+            duplicados.add(numero)
+        # Si el número no está en ninguno de los conjuntos, lo agregamos al conjunto de no duplicados
+        else:
+            no_duplicados.add(numero)
+    # Retornamos el conjunto de números no duplicados
+    return no_duplicados
 
-
+# conjunto = {3, 6, 1, 9, 4, 6, 2, 3}
+# resultado = numeros_no_duplicados(conjunto)
+# print(resultado)
 
 # ------------------------------------------------------------------------------------
 # 15. Escriba una función que reciba un conjunto de números y devuelva un conjunto con
@@ -48,9 +93,7 @@ def primes(numbers):
   return sorted(primes)
 
 
-
 numbers = {23, 3, 5, 7, 13, 11, 19, 17, 2}
-
 # print(primes(numbers))
 
 
@@ -66,7 +109,6 @@ def palindromes(words):
 
 
 words = {"xyzyx", "elefante", "abcdcba", "pqrqp", "abcba", "abcde"}
-
 # print(palindromes(words))
 
 
@@ -83,7 +125,6 @@ def words_with_length(words, length):
 
 words = {"pqrst", "abcd", "xyz", "xxyyz", "adxc", "xd", "abcde"}
 length = 5
-
 # print(words_with_length(words, length))
 
 
@@ -100,7 +141,6 @@ def words_with_letter(words, letter):
 
 words = {"abcd", "mknf", "xdda", "xyza"}
 letter = "a"
-
 # print(words_with_letter(words, letter))
 
 
@@ -129,5 +169,4 @@ def palindromes(words, length):
 
 words = {"xyzyx", "elefante", "abcdcba", "pqrqp", "abcba", "abcde"}
 length = 5
-
 # print(palindromes(words, length))

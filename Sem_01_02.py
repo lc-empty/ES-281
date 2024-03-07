@@ -44,7 +44,6 @@ def es_primo(n):
     return es_primo
 
 # n = int(input("Ingrese un número: "))
-
 # es_primo = es_primo(n)
 
 # if es_primo:
@@ -54,12 +53,11 @@ def es_primo(n):
 
 # --------------------------------------------------------------------------------
 # 6. Toma una cadena de texto y muestra su inversión.
-# def invertir_cadena(cadena):
-#     return cadena[::-1]
+def invertir_cadena(cadena):
+     return cadena[::-1]
 
-# cadena = "Hola, mundo!"
-
-# invertida = invertir_cadena(cadena)
+cadena = "Hola, mundo!"
+invertida = invertir_cadena(cadena)
 
 # print("La cadena invertida es:", invertida)
 
@@ -133,18 +131,17 @@ def arr_numbers_sort():
 
 # --------------------------------------------------------------------------------
 # 12. Verifica si una palabra ingresada por el usuario es un palíndromo.
-# def palindromo(text: str):
-#     long: int = len(text)
-#     half: int = long // 2
+def palindromo(text: str):
+    long: int = len(text)
+     half: int = long // 2
 
-#     for i in range(0, half):
-#         if text[i] != text[long - i - 1]:
-#             return False
+    for i in range(0, half):
+         if text[i] != text[long - i - 1]:
+             return False
 
-#     return True
+     return True
 
 # text: str = input("input the text: ")
-
 # text_palindromo = palindromo(text)
 
 # if text_palindromo:
