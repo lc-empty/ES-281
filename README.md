@@ -15,49 +15,49 @@ Desactivar e entorno virtual: `desactivate`
 ## Comparación de los lenguajes de programación JAVA, PYTHON y C
 
 - Operaciones Básicas:
-  1. Realiza la suma, resta, multiplicación y división de dos números ingresados por el usuario.
+  - Realiza la suma, resta, multiplicación y división de dos números ingresados por el usuario.
 
 - Verificación de Número Par o Impar:
-  2. Solicita un número al usuario y determina si es par o impar.
+  - Solicita un número al usuario y determina si es par o impar.
 
 - Área de un Triángulo:
-  3. Pide la base y la altura de un triángulo al usuario y calcula su área.
+  - Pide la base y la altura de un triángulo al usuario y calcula su área.
 
 - Calculadora de Factorial:
-  4. Crea una función que calcule la factorial de un número.
+  - Crea una función que calcule la factorial de un número.
 
 - Número Primo:
-  5. Verifica si un número ingresado por el usuario es primo o no.
+  - Verifica si un número ingresado por el usuario es primo o no.
 
 - Inversión de Cadena:
-  6. Toma una cadena de texto y muestra su inversión.
+  - Toma una cadena de texto y muestra su inversión.
 
 - Suma de Números Pares:
-  7. Calcula la suma de los números pares en un rango especificado por el usuario.
+  - Calcula la suma de los números pares en un rango especificado por el usuario.
 
 - Lista de Cuadrados:
-  8. Crea una lista de los cuadrados de los primeros 10 números naturales.
+  - Crea una lista de los cuadrados de los primeros 10 números naturales.
 
 - Contador de Vocales:
-  9. Cuenta el número de vocales en una cadena de texto.
+  - Cuenta el número de vocales en una cadena de texto.
 
 - Números de la Serie Fibonacci:
-  10. Genera los primeros 10 números de la serie Fibonacci.
+  - Genera los primeros 10 números de la serie Fibonacci.
 
 - Ordenamiento de Lista:
-  11. Ordena una lista de números ingresados por el usuario de menor a mayor.
+  - Ordena una lista de números ingresados por el usuario de menor a mayor.
 
 - Palíndromo:
-  12. Verifica si una palabra ingresada por el usuario es un palíndromo.
+  - Verifica si una palabra ingresada por el usuario es un palíndromo.
 
 - Generador de Tablas de Multiplicar:
-  13. Crea un programa que genere la tabla de multiplicar de un número ingresado por el usuario.
+  - Crea un programa que genere la tabla de multiplicar de un número ingresado por el usuario.
 
 - Cálculo del Área de un Círculo:
-  14. Pide el radio de un círculo al usuario y calcula su área.
+  - Pide el radio de un círculo al usuario y calcula su área.
 
 - Suma de Dígitos:
-  15. Toma un número entero y calcula la suma de sus dígitos.
+  - Toma un número entero y calcula la suma de sus dígitos.
 
 
 ## Recyrsividad - Arreglos y Matrices
@@ -68,7 +68,7 @@ Desactivar e entorno virtual: `desactivate`
     - Ejercicio 2: Escribe una función recursiva que imprima la suma de los números del 1 al n.
     - Ejercicio 3: Escribe una función recursiva que imprima la pirámide de números del 1 al n.
     - Ejercicio 4: Escribe una función recursiva que imprima la pirámide de números invertidos del 1 al n.
-    - Ejercicio 2: Escribe una función recursiva que imprima la tabla de multiplicar del n.
+    - Ejercicio 5: Escribe una función recursiva que imprima la tabla de multiplicar del n.
 
   - *Arreglos y Matrices*
     - Crea una matriz de números reales.
@@ -132,14 +132,14 @@ Desactivar e entorno virtual: `desactivate`
 
 ## Listas enlazadas dobles y pilas
 
-- Ejercicio parte 01 – Listas Enlazadas Dobles:
+- **Ejercicio parte 01 – Listas Enlazadas Dobles:**
   - Crea una lista con al menos 4 nodos, duplica cada nodo de la lista e imprime la lista original y la lista duplicada hacia adelante y hacia atrás
   - Crea una lista con al menos 9 nodos, cuenta cuántos nodos tienen un dato par y cuántos tienen un dato impar e imprime la lista hacia adelante y hacia atrás.
   - Crea una lista con al menos 5 nodos, inserta un nuevo nodo con el dato 15 en la posición 3 e imprime la lista hacia adelante y hacia atrás.
   - Crea una lista con nodos que contengan datos duplicados, elimina todos los nodos duplicados, dejando solo una instancia de cada dato e imprime la lista hacia adelante y hacia atrás.
   - Crea una lista con al menos 6 nodos, invierte el orden de la lista (el último elemento se convierte en el primero y viceversa) e imprime la lista hacia adelante y hacia atrás.
 
-- Ejercicios parte 02:
+- **Ejercicios parte 02: Pilas**
   - Utilizar una pila para invertir el orden de los caracteres de una cadena.
   - Implementar un programa que convierta un número decimal a su representación en sistema binario utilizando una pila.
   - Crear un programa que evalúe una expresión matemática en notación posfija utilizando una pila.
@@ -153,13 +153,13 @@ Desactivar e entorno virtual: `desactivate`
 
 ## Colas y Arboles Binarios
 
-- Ejercicio parte 01 – Colas:
+- **Ejercicio parte 01 – Colas:**
   - *Verificar si una palabra es palíndroma:* Implementa una función que determine si una palabra es palíndroma o no. Utiliza una cola para comparar los caracteres de la palabra en orden original y reverso.
   - *Diseño de un sistema de gestión de pedidos:* Crea un sistema de gestión de pedidos que utilice una cola para procesar los pedidos en el orden en que fueron recibidos. Implementa funciones para agregar pedidos, procesar pedidos y mostrar el estado actual de la cola.
   - *Búsqueda de rutas en un laberinto:* Desarrolla un programa que encuentre el camino más corto a través de un laberinto. Utiliza una cola para realizar un recorrido en anchura (BFS) desde el punto de inicio hasta el punto de destino.
   - *Diseño de un sistema de gestión de tareas (Avanzado):* Implementa un sistema de gestión de tareas que permita agregar tareas, marcar tareas como completadas y mostrar la próxima tarea pendiente.
 
-- Ejercicios parte 02 - Arboles:
+- **Ejercicios parte 02 - Arboles:**
   - *Contar Nodos*
     - Implementar una función que cuente la cantidad de nodos en el árbol.
     - Implementar una función que cuente la cantidad de nodos hoja (que no tienen hijos).
