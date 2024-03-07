@@ -354,3 +354,114 @@ pila_ordenada = ordenar_pila_ascendente(pila)
 
 print("Pila original:", pila.items)
 print("Pila ordenada:", pila_ordenada.items)
+
+
+#11. Eliminar los elementos duplicados de una pila.
+
+def eliminar_elementos_duplicados_pila(pila): # definimos la funcion iminar_elementos_duplicados_pila que recibe como parametro una pila
+    pila_elementos_unicos = [] #craemos una pila que almacenara elementos unicos
+
+    while pila:# Mientras pila no esté vacía se ejecutara el bucle
+        elemento = pila.pop()
+        #verificamos, Si elemento no está en la pila de elementos unicos lo agregamos, de lo contrario no 
+        if elemento not in pila_elementos_unicos:
+            pila_elementos_unicos.append(elemento)
+
+    # los elementos de la pila de lementos unicos lo llevamos de vuelta a pila 
+    while pila_elementos_unicos:
+        pila.append(pila_elementos_unicos.pop())
+
+# Ejemplo 
+pila = [22, 2, 16, 7, 2, 1, 7]
+print("Pila inicial:", pila)
+eliminar_elementos_duplicados_pila(pila)
+print("Pila sin elementros duplicados:", pila)
+
+#12. Crear una calculadora que pueda realizar operaciones básicas (+, -, *, /) utilizando una pila para evaluar expresiones. 
+def calculadora(expresion):
+    # Divide la expresión en fichas (números y operadores)
+    fichas = expresion.split()
+    pila = []
+
+    #con if iteramos las fichas
+    for ficha in fichas:
+        # Si la ficha es un número, lo apila en la pila
+        if ficha.isdigit():
+            pila.append(float(ficha))
+        # Si la ficha es un operador, realiza la operación correspondiente
+        else:
+            # Se desapilan los dos últimos números
+            numero_ultimo= pila.pop()
+            numero_antepenultimo= pila.pop()
+            # Realiza la operación correspondiente al operador
+            if ficha == '+':
+                resultado = numero_ultimo + numero_antepenultimo
+            elif ficha == '-':
+                resultado = numero_ultimo - numero_antepenultimo
+            elif ficha== '*':
+                resultado = numero_ultimo* numero_antepenultimo
+            elif ficha == '/':
+                # Manejo de errores, division entre cero
+                if numero_antepenultimo == 0:
+                    raise ValueError("No se puede dividir entre cero")
+                resultado = numero_ultimo / numero_antepenultimo
+            else:
+                raise ValueError("Operador no válido: " + ficha)
+            # Apila el resultado de la operación
+            pila.append(resultado)
+
+    # El resultado estará en la cima de la pila
+    return pila[0]
+
+# Ejemplo
+expresion = "3 4 + 2 *"
+resultado = calculadora(expresion)
+print("Resultado:", resultado)
+
+#13
+def es_palindromo(frase):
+    frase= frase.lower().replace(" ", "")## Eliminar los espacios existentes en la frase y convertir los caracteres a minúsculas
+    # Creamos una pila
+    pila = []
+     # con for agregamos cada carácter en la pila de modo que el ultimo ingresa primero
+    for caracter in frase:
+        pila.append(caracter)
+    # Comparamos cada carácter con los correspondientes de la palabra original
+    for caracter in frase:
+        if caracter != pila.pop():
+            return False    #si el caracter es diferente al de la frase la funcion devuelve falso de lo contarrio verdadero
+    return True
+# Ejemplo 
+frase = "Yo hago yoga hoy"
+print("¿Es un palíndromo?", es_palindromo(frase))
+
+
+#14. Implementar un sistema simple de "deshacer" utilizando dos pilas, una para las acciones y otra para los deshaceres. 
+ 
+class SistemaDeshacer:
+    # con el Método __init__ que se llama al crear una instancia de la clase se inicializa las pilas de acciones y deshaceres vacías
+    def __init__(self):
+        self.pila_acciones = []
+        self.pila_deshacer = []
+
+    def hacer(self, accion):
+        # Realizamos la acción y agregarmos a la pila de acciones
+        print("Haciendo:", accion)
+        self.pila_acciones.append(accion)
+
+    def deshacer(self):
+        if self.pila_acciones:
+            # Sacamos la última acción realizada de la pila de acciones y le agregamos a la pila de deshacer
+            accion_deshacer = self.pila_acciones.pop()
+            print("Deshaciendo:", accion_deshacer) #imprime la accion que estamos deshaciendo
+            self.pila_deshacer.append(accion_deshacer)#agramos la accion a la pila de deshacer
+        else:
+            print("No hay acciones para deshacer")
+
+
+# Ejemplo
+sistema = SistemaDeshacer()
+sistema.hacer("Guardar documento")
+sistema.hacer("Editar texto")
+sistema.deshacer()
+sistema.rehacer()
