@@ -1,3 +1,35 @@
+class Nodo:
+    def __init__(self, dato):
+        self.dato = dato
+        self.siguiente = None
+
+class Cola:
+    def __init__(self):
+        self.cabeza = None
+        self.cola = None
+
+    def esta_vacia(self):
+        return self.cabeza is None
+
+    def enColar(self, dato):
+        nuevo = Nodo(dato)
+        if self.esta_vacia():
+            self.cabeza = nuevo
+            self.cola = nuevo
+        else:
+            self.cola.siguiente = nuevo
+            self.cola = nuevo
+
+    def desColar(self):
+        if not self.esta_vacia():
+            dato = self.cabeza.dato
+            self.cabeza = self.cabeza.siguiente
+            if self.cabeza is None:
+                self.cola = None
+            return dato
+        else:
+            return None
+
 class Llamada:
     def __init__(self, duracion, prioridad):
         self.duracion = duracion
@@ -5,43 +37,47 @@ class Llamada:
 
 class SistemaGestionLlamadas:
     def __init__(self):
-        self.llamadas_espera = []
+        self.llamadas_en_espera = Cola()
 
-    def agregar_llamada(self, llamada):
-        self.llamadas_espera.append(llamada)
+    def agregar_llamada(self, duracion, prioridad):
+        llamada = Llamada(duracion, prioridad)
+        self.llamadas_en_espera.enColar(llamada)
 
-    def atender_llamada(self):
-        if self.llamadas_espera:
-            # Ordenar las llamadas por prioridad y duración
-            self.llamadas_espera.sort(key=lambda x: (x.prioridad, -x.duracion))
-            llamada_atendida = self.llamadas_espera.pop(0)
-            return llamada_atendida
-        else:
-            return None
+    def obtener_prioridad(self, llamada):
+        return llamada.prioridad 
 
-    def mostrar_llamadas_espera(self):
-        if self.llamadas_espera:
-            print("Llamadas en espera:")
-            for llamada in self.llamadas_espera:
-                print(f"Duración: {llamada.duracion}, Prioridad: {llamada.prioridad}")
-        else:
-            print("No hay llamadas en espera")
+    def atender_llamadas(self):
+        if self.llamadas_en_espera.esta_vacia():
+            print("No hay llamadas en espera.")
+            return
 
-# Crear el sistema de gestión de llamadas
+        llamadas_lista = []
+        while not self.llamadas_en_espera.esta_vacia():
+            llamadas_lista.append(self.llamadas_en_espera.desColar())
+
+        llamadas_ordenadas = []
+        for llamada in llamadas_lista:
+            if not llamadas_ordenadas:
+                llamadas_ordenadas.append(llamada)
+            else:
+                for i in range(len(llamadas_ordenadas)):
+                    if llamada.prioridad < llamadas_ordenadas[i].prioridad:
+                        llamadas_ordenadas.insert(i, llamada)
+                        break
+                else:
+                    llamadas_ordenadas.append(llamada)
+        
+        print("Atendiendo llamadas en orden de prioridad y tiempo de duración:")
+        for llamada in llamadas_ordenadas:
+            print(f"Llamada - Duración: {llamada.duracion} minutos, Prioridad: {llamada.prioridad}")
+
+
+# Ejemplo de uso
 sistema_llamadas = SistemaGestionLlamadas()
+sistema_llamadas.agregar_llamada(5, 1)
+sistema_llamadas.agregar_llamada(10, 2)
+sistema_llamadas.agregar_llamada(7, 1)
+sistema_llamadas.agregar_llamada(3, 3)
 
-# Agregar algunas llamadas de ejemplo
-sistema_llamadas.agregar_llamada(Llamada(10, 2))
-sistema_llamadas.agregar_llamada(Llamada(5, 1))
-sistema_llamadas.agregar_llamada(Llamada(15, 3))
-
-# Atender las llamadas en orden de prioridad y duración
-llamada_atendida = sistema_llamadas.atender_llamada()
-if llamada_atendida:
-    print("Llamada atendida - Duración:", llamada_atendida.duracion)
-else:
-    print("No hay llamadas en espera")
-
-# Mostrar el estado actual de las llamadas en espera
-sistema_llamadas.mostrar_llamadas_espera()
+sistema_llamadas.atender_llamadas()
 
