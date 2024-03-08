@@ -11,6 +11,10 @@ Instalas las librerias/paquetes: `pip install -r requirements.txt`
 
 Desactivar e entorno virtual: `desactivate`
 
+# Colaboradorees
+- Thayli Roxana Yanasupo Romero
+- Ramos Lopez Isaias
+
 
 ## Comparación de los lenguajes de programación JAVA, PYTHON y C
 
