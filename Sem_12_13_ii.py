@@ -1,3 +1,214 @@
+### Colas
+
+#1. Implementa una función que determine si una palabra es palíndroma o no. Utiliza una cola para
+#comparar los caracteres de la palabra en orden original y reverso.
+
+from collections import deque
+
+
+def es_palindromo(palabra):# Definimos la función es palindromo, esta recibe como parametro una palabra
+    # Creamos una cola vacía utilizando deque
+    cola = deque()# utiliczando deque del modulo collections se crea una cola vacía 
+
+    for caracter in palabra:   # con un for recorremos la palabra y agregamos cada carácter a la cola
+        cola.append(caracter)
+
+   
+    palindromo = True # inicializamos la variable apalindromo con True, esta variable nos permite saber si la palabra es palindromo
+
+    while len(cola) > 1 and palindromo: # utilzando while comparamos los caracteres en orden original y reverso, siempre que haya mas de un caracter en la cola y sea palindromo 
+        if cola.popleft() != cola.pop():# con if Comparamos el primer y último elemento de la cola, utilizando append y pop
+                                        # Si los caracteres no son iguales, la palabra no es palíndroma
+           palindromo = False
+
+    return palindromo #entonces la funcion retorna True si es palindromo, de lo contrario retorna False
+
+# Ejemplo
+palabra = "reconocer"
+if es_palindromo(palabra):
+    print(f"{palabra} es palíndroma.")
+else:
+    print(f"{palabra} no es palíndroma.")
+
+
+
+# Importamos la clase deque del módulo collections
+from collections import deque
+
+# Definimos una clase llamada GestionarPedidos
+class GestionarPedidos:
+    # Método de inicialización de la clase
+    def __init__(self): ## con el método de inicialización de la clase y creamos una cola que almacene pedidos
+        self.cola_pedidos = deque()
+
+    
+    def agregar_pedido(self, pedido):# definimos el método para agregar un pedido a la cola utilizando append 
+        self.cola_pedidos.append(pedido)
+
+
+    
+    def procesar_pedido(self):# definimos el método para procesar un pedido de la cola
+        
+        if self.cola_pedidos: # si hay pedidos en la cola extraemos y procesamos el primero de la cola utilizando popleft
+            pedido = self.cola_pedidos.popleft()
+
+        else: 
+            
+            print("No hay pedidos para procesar.") # de lo contrario solo imprimimos un mensaje indicando que no hay pedidos para procesar
+
+    
+    def mostrar_estado_cola(self):# definimos el método para mostrar el estado actual de la cola de pedidos
+    
+        if self.cola_pedidos:   # Verificamos si hay pedidos en la cola, si eso ocurre imprimimos un mensaje indicando el estado actual de la cola
+            print("Estado actual de la cola de pedidos:")
+           
+            for indice, pedido in enumerate(self.cola_pedidos, start=1): # Iteramos sobre los pedidos en la cola e imprimimos cada uno con su índice
+                print(f"{indice}. {pedido}")
+        else:
+            print("La cola de pedidos está vacía.")# Si la cola está vacía, imprimimos un mensaje indicando que la cola está vacía
+
+#ejempplo: un del sistema de gestion de pedidos una heladeria
+# Creamos una instancia de la clase GestionarPedidos
+
+sistema = GestionarPedidos()
+
+sistema.agregar_pedido("helado de chocolate")
+sistema.agregar_pedido("capuccino")# Agregamos algunos pedidos de los productos de la heladeria a la cola utilizando el método agregar_pedido()
+sistema.agregar_pedido("cafe helado")
+
+
+sistema.mostrar_estado_cola()# con el método mostrar_estado_cola() se muestra el estado actual de la cola de pedidos 
+
+
+sistema.procesar_pedido()
+sistema.procesar_pedido()# Procesamos algunos pedidos de la cola utilizando el método procesar_pedido()
+sistema.procesar_pedido()
+
+
+sistema.mostrar_estado_cola()# Mostramos nuevamente el estado actual de la cola de pedidos
+
+# 3. Desarrolla un programa que encuentre el camino más corto a través de un laberinto. Utiliza una cola
+# para realizar un recorrido en anchura (BFS) desde el punto de inicio hasta el punto de destino.
+
+from collections import deque
+
+# Definimos una función para encontrar el camino más corto a través del laberinto
+def encontrar_camino_laberinto(laberinto, inicio, destino):
+    # Definimos las direcciones posibles para moverse (arriba, abajo, izquierda, derecha)
+    direcciones = [(1, 0), (-1, 0), (0, 1), (0, -1)]
+    # Obtenemos las dimensiones del laberinto
+    filas = len(laberinto)
+    columnas = len(laberinto[0])
+    # Creamos una cola para realizar el recorrido en anchura
+    cola = deque()
+    # Agregamos el punto de inicio a la cola
+    cola.append(inicio)
+    # Creamos un conjunto para almacenar los nodos visitados
+    visitados = set()
+    # Marcamos el punto de inicio como visitado
+    visitados.add(inicio)
+    # Creamos un diccionario para almacenar los padres de cada nodo (para reconstruir el camino)
+    padres = {inicio: None}
+
+    # Mientras haya nodos en la cola
+    while cola:
+        # Sacamos el nodo actual de la cola
+        nodo_actual = cola.popleft()
+        # Si llegamos al destino, terminamos la búsqueda
+        if nodo_actual == destino:
+            break
+        # Exploramos las direcciones posibles desde el nodo actual
+        for direccion in direcciones:
+            # Calculamos las coordenadas del siguiente nodo
+            fila_nueva = nodo_actual[0] + direccion[0]
+            columna_nueva = nodo_actual[1] + direccion[1]
+            # Verificamos si las coordenadas están dentro del laberinto y el nodo no ha sido visitado
+            if 0 <= fila_nueva < filas and 0 <= columna_nueva < columnas and laberinto[fila_nueva][columna_nueva] != '#' and (fila_nueva, columna_nueva) not in visitados:
+                # Agregamos el nuevo nodo a la cola y lo marcamos como visitado
+                cola.append((fila_nueva, columna_nueva))
+                visitados.add((fila_nueva, columna_nueva))
+                # Guardamos el padre del nuevo nodo
+                padres[(fila_nueva, columna_nueva)] = nodo_actual
+
+    # Reconstruimos el camino más corto desde el punto de inicio hasta el destino
+    camino = []
+    nodo_actual = destino
+    while nodo_actual is not None:
+        camino.append(nodo_actual)
+        nodo_actual = padres[nodo_actual]
+    camino.reverse()
+
+    return camino
+
+# Ejemplo
+laberinto = [
+    ['#', '#', '#', '#', '#', '#', '#', '#', '#', '#'],
+    ['#', '.', '.', '.', '#', '.', '.', '.', '.', '#'],
+    ['#', '.', '#', '.', '#', '.', '#', '#', '#', '#'],
+    ['#', '.', '#', '.', '.', '.', '.', '.', '.', '#'],
+    ['#', '#', '#', '#', '#', '#', '#', '#', '#', '#'],
+]
+inicio = (1, 1)  # Coordenadas del punto de inicio
+destino = (3, 8)  # Coordenadas del punto de destino
+
+# Llamamos a la función para encontrar el camino más corto en el laberinto
+camino = encontrar_camino_laberinto(laberinto, inicio, destino)
+
+# Si se encontró un camino, se imprime; de lo contrario se indica que no se encontró un camino válido
+if camino:
+    print("Camino más corto encontrado:")
+    for paso in camino:
+        print(paso)
+else:
+    print("No se encontró un camino válido.")
+    
+#4. Implementa un sistema de gestión de tareas que permita agregar tareas, marcar tareas como
+# completadas y mostrar la próxima tarea pendiente.
+
+
+
+from collections import deque
+
+
+class SistemaGestionTareas:# Definimos una clase llamada GestionarTareas 
+    
+    def __init__(self):
+        self.tareas_pendientes = deque() # Creamos una cola vacía para almacenar las tareas pendientes
+
+    
+    def agregar_tarea(self, tarea):# metodo para agregar una tarea a la cola de tareas pendientes
+        
+        self.tareas_pendientes.append(tarea)# Agregamos la tarea a la cola utilizando el método append() de deque
+        print(f"Tarea agregada: {tarea}")#confirmamos que la tarea ha sido agregada
+
+    
+    def tarea_completada(self, tarea):# metodo para marcar una tarea como completada
+        try:
+            # removemos la tarea de la cola de tareas pendientes
+            self.tareas_pendientes.remove(tarea)
+           
+            print(f"Tarea completada: {tarea}") # Si la tarea existe y fue removida con éxito se imprime un mensaje de confirmación
+        except ValueError:
+            print(f"No se encontró la tarea: {tarea}")# Si la tarea no se encontró en la cola, imprimimos un mensaje
+    
+    def mostrar_proxima_tarea_pendiente(self):# método para mostrar la próxima tarea pendiente en la cola
+        # Verificamos si hay tareas pendientes en la cola
+        if self.tareas_pendientes: # si hay tareas pendientes en la cola, imprimimos la primera tarea de la cola de lo contraio imprimimos un mensaje indicando que no hay tareas pendientes
+
+            print(f"Próxima tarea pendiente: {self.tareas_pendientes[0]}")
+        else:
+            print("No hay tareas pendientes.")
+
+# Ejemplo 
+sistema = SistemaGestionTareas()
+
+
+sistema.agregar_tarea("Hacer la compra")# Agregamos algunas tareas al sistema
+sistema.agregar_tarea("Llamar al cliente")
+sistema.agregar_tarea("Enviar informe")
+sistema.mostrar_proxima_tarea_pendiente()# mostramos la próxima tarea pendiente en la cola
+sistema.marcar_completada("Hacer la compra")# marcamos una tarea como completada
+sistema.mostrar_proxima_tarea_pendiente()# mostramos la próxima tarea pendiente después de marcar una como completada
 # ARBOLES
 # -----------------------------------------------
 
