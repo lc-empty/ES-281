@@ -1,19 +1,19 @@
 # Estructua de Datos Fundamentales y Algoritmos
 
-Crear entorno virtual: `python -m venv env`
+Crear un entorno virtual: `python -m venv env`
 
 Activar el entono virtual: 
 - En ArchLinux + Fish: `source env/bin/activate.fish`
 - En Linux/macOS: `source env/bin/activate`
 - En Windos: `.\env\Scripts\activate`
 
-Instalas las librerias/paquetes: `pip install -r requirements.txt`
+Instalar las librerias/paquetes: `pip install -r requirements.txt`
 
-Desactivar e entorno virtual: `desactivate`
+Desactivar el aentorno virtual: `desactivate`
 
 # Colaboradorees
 - Thayli Roxana Yanasupo Romero
-- Ramos Lopez Isaias
+- Isaias Ramos Lopez
 
 
 ## Comparación de los lenguajes de programación JAVA, PYTHON y C
